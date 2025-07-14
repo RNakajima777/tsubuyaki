@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 @Controller
   
 public class TsubuyakiController {
@@ -36,6 +38,14 @@ public class TsubuyakiController {
         model.addAttribute("tsubuyakiForm", new TsubuyakiForm());  //空フォームをセット
 
         return "tsubuyaki_list"; //リスト画面を返す 
+    }
+
+    //検索結果を表示
+    @GetMapping("/search")
+    String searchTsubuyaki(@RequestParam(name = "keyword") String keyword, Model model) {
+        List<Tsubuyaki> list = ts.searchTsubuyaki(keyword);
+        model.addAttribute("tsubuyakiList", list);
+        return "search_result";
     }
 
   

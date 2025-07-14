@@ -8,6 +8,11 @@
  
 <body>  
     <h1>みんなのつぶやき</h1>
+
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="keyword" placeholder="検索キーワード"/>
+        <input type="submit" value="検索"/>
+    </form>
   
     <ul>
         <li th:each="t: ${tsubuyakiList}">
