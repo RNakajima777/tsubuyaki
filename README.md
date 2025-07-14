@@ -1,2 +1,0 @@
-# tsubuyaki
-つぶやきWebアプリの実装
